@@ -2,7 +2,7 @@ import requests
 
 
 def get_all_students():
-    url = "http://127.0.0.1:8000/students"
+    url = "http://127.0.0.1:8000/tasks"
     response = requests.get(url)
     return response.json()
 

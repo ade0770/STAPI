@@ -34,3 +34,20 @@ def json_to_dict_list(filename):
     except (TypeError, ValueError, IOError) as e:
         print(f"Ошибка при чтении JSON из файла или преобразовании в список словарей: {e}")
         return None
+
+
+def update_json_file(filename, data):
+    """
+    Обновляет содержимое JSON-файла.
+
+    :param filename: Имя файла для обновления
+    :param data: Новый контент JSON-файла
+    :return: True, если обновление прошло успешно, False - в случае ошибки
+    """
+    try:
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+        return True
+    except Exception as e:
+        print(f"Ошибка при обновлении JSON-файла: {e}")
+        return False
